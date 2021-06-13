@@ -1,0 +1,241 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'stylecon.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<!-- FOR THE FIRST CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch20").click(function(){
+        if(!$(this).is(':checked')){
+            $("#evtt1").remove();
+            $("#rpn1").remove();
+            $("#rpd1").remove();
+            $("#rpc1").remove();
+            $("#rpp1").remove();
+            $("#rpm1").remove();
+            $("#ooe1").remove();
+            $("#doe1").remove();
+            $("#nob1").remove();
+            $("#ed1").remove();
+        }
+        else{
+            $("#ch20").after('<div class="inputBox w50" id="evtt1" style="padding-top:25px"><input type="text" name="fdptitle" required><span>Event Title</span></div><div class="inputBox w50" id="rpn1" style="padding-top:25px"><input type="text" name="fdprpname" required><span>Resource Person Name</span></div><div class="inputBox w50" id="rpd1" style="padding-top:25px"><input type="text" name="fdprpdesignation" required><span>Resource Person Designation</span></div><div class="inputBox w50" id="rpc1" style="padding-top:25px"><input type="text" name="fdprpcompany" required><span>Resource Person Company</span></div><div class="inputBox w50" id="rpp1" style="padding-top:25px"><input type="text" name="fdprpphone" required><span>Resource Person Phone no.</span></div><div class="inputBox w50" id="rpm1" style="padding-top:25px"><input type="text" name="fdprpmailid" required><span>Resource Person Mail id</span></div><div class="inputBox w50" id="ooe1" style="padding-top:25px"><input type="text" name="fdporganizer" required><span>Organizer of Event</span></div><div class="inputBox w50" id="doe1" style="padding-top:25px"><input type="date" name="fdpdate" required><span>Date of Event</span></div><div class="inputBox w50" id="nob1" style="padding-top:25px"><input type="text" name="fdpbeneficiaries" required><span>Number of Beneficiaries(Faculty)</span></div><div class="inputBox w100" id="ed1" style="padding-top: 20px"><textarea name="fdpdescription" required></textarea><span>Event Description</span></div>');
+        }
+  });
+    $("#ch21").click(function(){
+        if(!$(this).is(':checked')){
+            $("#evtt2").remove();
+            $("#rpn2").remove();
+            $("#rpd2").remove();
+            $("#rpc2").remove();
+            $("#rpp2").remove();
+            $("#rpm2").remove();
+            $("#ooe2").remove();
+            $("#doe2").remove();
+            $("#ad2").remove();
+            $("#fully2").remove();
+        }
+        else{
+            $("#ch21").after('<div class="inputBox w50" id="evtt2" style="padding-top:25px"><input type="text" name="daatitle" required><span>Event Title</span></div><div class="inputBox w50" id="rpn2" style="padding-top:25px"><input type="text" name="daarpname" required><span>Resource Person Name</span></div><div class="inputBox w50" id="rpd2" style="padding-top:25px"><input type="text" name="daarpdesignation" required><span>Resource Person Designation</span></div><div class="inputBox w50" id="rpc2" style="padding-top:25px"><input type="text" name="daarpcompany" required><span>Resource Person Company</span></div><div class="inputBox w50" id="rpp2" style="padding-top:25px"><input type="text" name="daarpphone" required><span>Resource Person Phone no.</span></div><div class="inputBox w50" id="rpm2" style="padding-top:25px"><input type="text" name="daarpmailid" required><span>Resource Person Mail id</span></div><div class="inputBox w50" id="ooe2" style="padding-top:25px"><input type="text" name="daaorganizer" required><span>Organizer of Event</span></div><div class="inputBox w50" id="doe2" style="padding-top:25px"><input type="date" name="daadate" required><span>Date of Event</span></div><div class="full" id="fully2"><label class="inputBox w100" style="padding-top: 20px"><h2>Department</h2></label><div class="inputBox w50" id="dept" style="margin-top: 15px"><select name="daadept" id="dts"><option value="1">CSE</option><option value="2">ECE</option><option value="3">EEE</option><option value="4">MECH</option><option value="5">CIVIL</option></select></div></div><div class="inputBox w100" id="ad2" style="padding-top: 25px"><textarea name="daadescription" required></textarea><span>Activity Description</span></div>');
+        }
+  });
+    $("#ch22").click(function(){
+        if(!$(this).is(':checked')){
+            $("#evtt3").remove();
+            $("#rpn3").remove();
+            $("#rpd3").remove();
+            $("#rpc3").remove();
+            $("#rpp3").remove();
+            $("#rpm3").remove();
+            $("#ooe3").remove();
+            $("#doe3").remove();
+            $("#nos3").remove();
+            $("#fully3").remove();
+            $("#ed3").remove();
+        }
+        else{
+            $("#ch22").after('<div class="inputBox w50" id="evtt3" style="padding-top:25px"><input type="text" name="vactitle" required><span>Event Title</span></div><div class="inputBox w50" id="rpn3" style="padding-top:25px"><input type="text" name="vacrpname" required><span>Resource Person Name</span></div><div class="inputBox w50" id="rpd3" style="padding-top:25px"><input type="text" name="vacrpdesignation" required><span>Resource Person Designation</span></div><div class="inputBox w50" id="rpc3" style="padding-top:25px"><input type="text" name="vacrpcompany" required><span>Resource Person Company</span></div><div class="inputBox w50" id="rpp3" style="padding-top:25px"><input type="text" name="vacrpphone" required><span>Resource Person Phone no.</span></div><div class="inputBox w50" id="rpm3" style="padding-top:25px"><input type="text" name="vacrpmailid" required><span>Resource Person Mail id</span></div><div class="inputBox w50" id="ooe3" style="padding-top:25px"><input type="text" name="vacorganizer" required><span>Organizer of Event</span></div><div class="inputBox w50" id="doe3" style="padding-top:25px"><input type="date" name="vacdate" required><span>Date of Event</span></div><div class="full" id="fully3"><label class="inputBox w100" style="padding-top: 20px"><h2>Department of Students</h2></label><div class="inputBox w50" id="dept" style="margin-top: 15px"><select name="vacdept" id="dts"><option value="1">CSE</option><option value="2">ECE</option><option value="3">EEE</option><option value="4">MECH</option><option value="5">CIVIL</option></select></div></div><div class="inputBox w50" id="nos3" style="padding-top:25px"><input type="text" name="vacnostudents" required><span>Number of Students attended</span></div><div class="inputBox w100" id="ed3" style="padding-top: 25px"><textarea name="vacdescription" required></textarea><span>Event Description</span></div>');
+        }
+  });
+    $("#ch23").click(function(){
+        if(!$(this).is(':checked')){
+            $("#glt4").remove();
+            $("#rpn4").remove();
+            $("#rpd4").remove();
+            $("#rpc4").remove();
+            $("#rpp4").remove();
+            $("#rpm4").remove();
+            $("#ooe4").remove();
+            $("#doe4").remove();
+            $("#nos4").remove();
+            $("#ed4").remove();
+        }
+        else{
+            $("#ch23").after('<div class="inputBox w50" id="glt4" style="padding-top:25px"><input type="text" name="glctitle" required><span>Guest Lecture Title</span></div><div class="inputBox w50" id="rpn4" style="padding-top:25px"><input type="text" name="glcrpname" required><span>Resource Person Name</span></div><div class="inputBox w50" id="rpd4" style="padding-top:25px"><input type="text" name="glcrpdesignation" required><span>Resource Person Designation</span></div><div class="inputBox w50" id="rpc4" style="padding-top:25px"><input type="text" name="glcrpcompany" required><span>Resource Person Company</span></div><div class="inputBox w50" id="rpp4" style="padding-top:25px"><input type="text" name="glcrpphone" required><span>Resource Person Phone no.</span></div><div class="inputBox w50" id="rpm4" style="padding-top:25px"><input type="text" name="glcrpmailid" required><span>Resource Person Mail id</span></div><div class="inputBox w50" id="ooe4" style="padding-top:25px"><input type="text" name="glcorganizer" required><span>Organizer of Event</span></div><div class="inputBox w50" id="doe4" style="padding-top:25px"><input type="date" name="glcdate" required><span>Date of Event</span></div><div class="full" id="fully"><div class="inputBox w50" id="nos4" style="padding-top:25px"><input type="text" name="glcnostudents" required><span>Number of Students attended</span></div><div class="inputBox w100" id="ed4" style="padding-top: 25px"><textarea name="glcdescription" required></textarea><span>Event Description</span></div>');
+        }
+  });
+    $("#ch24").click(function(){
+        if(!$(this).is(':checked')){
+            $("#wt5").remove();
+            $("#rpn5").remove();
+            $("#rpd5").remove();
+            $("#rpc5").remove();
+            $("#rpp5").remove();
+            $("#rpm5").remove();
+            $("#ooe5").remove();
+            $("#doe5").remove();
+            $("#nos5").remove();
+            $("#ed5").remove();
+        }
+        else{
+            $("#ch24").after('<div class="inputBox w50" id="wt5" style="padding-top:25px"><input type="text" name="wtitle" required><span>Workshop Title</span></div><div class="inputBox w50" id="rpn5" style="padding-top:25px"><input type="text" name="wrpname" required><span>Resource Person Name</span></div><div class="inputBox w50" id="rpd5" style="padding-top:25px"><input type="text" name="wrpdesignation" required><span>Resource Person Designation</span></div><div class="inputBox w50" id="rpc5" style="padding-top:25px"><input type="text" name="wrpcompany" required><span>Resource Person Company</span></div><div class="inputBox w50" id="rpp5" style="padding-top:25px"><input type="text" name="wrpphone" required><span>Resource Person Phone no.</span></div><div class="inputBox w50" id="rpm5" style="padding-top:25px"><input type="text" name="wrpmailid" required><span>Resource Person Mail id</span></div><div class="inputBox w50" id="ooe5" style="padding-top:25px"><input type="text" name="worganizer" required><span>Organizer of Event</span></div><div class="inputBox w50" id="doe5" style="padding-top:25px"><input type="date" name="wdate" required><span>Date of Event</span></div><div class="full" id="fully"><div class="inputBox w50" id="nos5" style="padding-top:25px"><input type="text" name="wnostudents" required><span>Number of Students attended</span></div><div class="inputBox w100" id="ed5" style="padding-top: 25px"><textarea name="wdescription" required></textarea><span>Event Description</span></div>');
+        }
+  });
+});
+</script>
+
+
+<!-- FOR THE SECOND CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch4").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch4").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+    $("#ch5").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch5").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+    $("#ch6").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch6").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+});
+</script>
+
+
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="{% url 'personal' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Personal</a></li>
+                <li><a href="#" style="text-align: center; color: #03a9f4; text-decoration: none;">Events Conducted</a></li>
+                <li><a href="{% url 'eveat' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Attended</a></li>
+                <li><a href="{% url 'awards' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Achievements And Awards</a></li>
+                <li><a href="{% url 'report' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Frame Report</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <section>
+        <div class="container">
+            <div class="contactinfo">
+                <div>
+                    <h2>Requests :</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class="fas fa-pen"></i></span>
+                            <span><a href="{% url 'update1' %}" style="text-decoration: none;color: #efefef;font-size: 18px">Update Events Conducted Details</a></span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-envelope"></i></span>
+                            <span><a href="{% url 'email' %}" style="text-decoration: none;color: #efefef;font-size: 18px">Email</a></span>
+                        </li>
+                        <li>
+                            <span><i class="fab fa-whatsapp"></i></span>
+                            <span>Whatsapp</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <form class="ec" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h2>Events Conducted Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Faculty ID</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : </h2></label>
+                    <div class="inputBox w100">
+                        <span>Faculty Development Program</span>
+                        <input type="checkbox" id="ch20" name="checkbox2" value='1'>
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>Department Association Activities</span>
+                        <input type="checkbox" id="ch21" name="checkbox2" value='2'>
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>Value Added Courses Conducted</span>
+                        <input type="checkbox" id="ch22" name="checkbox2" value='3'>
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>Guest Lecture Conducted</span>
+                        <input type="checkbox" id="ch23" name="checkbox2" value='4'>
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>Workshop Conducted</span>
+                        <input type="checkbox" id="ch24" name="checkbox2" value='5'>
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <input type="submit" value="Send" id="btn1">
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        </section>
+    </body>
+{% if flagz %}
+<script>
+    alert("You haven't Conducted any Events")
+</script>
+{% endif %}
+{% if flagdel %}
+<script>
+    alert("Conducted Event has been successfully deleted")
+</script>
+{% endif %}
+</html>
+

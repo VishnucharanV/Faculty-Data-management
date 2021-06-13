@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="{% static 'stylehome.css' %}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        {% if flag %}
+        <h1>{{flag}}</h1>
+        {% endif %}
+        <div class="navigation">
+            <ul>
+                <li><a href="#" data-text="Home">Home</a></li>
+                <li><a href="{% url 'login' %}" data-text="Faculty Entry">Faculty Entry</a></li>
+                <li><a href="#" data-text="Student Entry">Student Entry</a></li>
+                <li><a href="#" data-text="Paper Submission">Paper Submission</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

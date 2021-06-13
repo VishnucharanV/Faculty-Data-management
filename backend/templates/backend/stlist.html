@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Award Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styleup.css' %}">
+    <style>
+    .box ul .back li:hover span{
+        background: black;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Awards</h2>
+        <ul>
+            {% for i in aud %}
+            <form method="post" name="stlist">
+            {% csrf_token %}
+            <li><span>{{forloop.counter}}</span><a href="{% url 'updateawards' %}"><input type="submit" name="{{i.id}}" value="{{i.id}}" style="border:none;background-color: white;font-size: 16px"></li>
+            </form>
+            {% endfor %}
+            <div class="back"><li style="background-color: #fa6961"><span>X</span><a href="{% url 'awards' %}" style="text-decoration: none;color: black;margin-left: 80px;font-size: 20px">BACK</a></li></div>
+        </ul>
+    </div>
+</body>
+</html>

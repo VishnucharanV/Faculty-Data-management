@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'stylelogin.css' %}">
+</head>
+<body style="background-image: url({% static 'pics/paint.jpg' %})">
+    <div class="container">
+        <div class="header">
+            <h1 style="color: aliceblue">Login</h1>
+        </div>
+        <div class="main">
+            <form method="post" class="login" name="login">
+                {% csrf_token %}
+                <span>
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="facultyid" name="facultyid" required>
+                </span><br>
+                <span>
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="password" name="facultypassword" required>
+                </span><br>
+                <input type="submit" value="Login" id="loginbtn" name="loginbtn" style="background-color: #12a4ff;font-size: 20px">
+            </form>
+        </div>
+    </div>
+</body>
+    {% if flag %}
+    <script>
+        alert("Invalid Credentials")
+    </script>
+    {% endif %}
+</html>

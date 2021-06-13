@@ -1,0 +1,142 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'styleaw.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        section:before{background: #ff6961}
+    </style>
+<!-- FOR THE FIRST CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch1").click(function(){
+        if(!$(this).is(':checked')){
+            $("#abt").remove();
+            $("#yop").remove();
+        }
+        else{
+            $("#ch1").after('<div class="inputBox w100" id="abt" style="padding-top:25px"><textarea name="" required></textarea><span>About the Degree</span></div><div class="inputBox w50" id="yop" style="padding-top:25px"><input type="text" name="" required><span>Year of Completion</span></div>');
+        }
+  });
+    $("#ch2").click(function(){
+        if(!$(this).is(':checked')){
+            $("#abt").remove();
+            $("#yop").remove();
+        }
+        else{
+            $("#ch2").after('<div class="inputBox w100" id="abt" style="padding-top:25px"><textarea name="" required></textarea><span>About the Degree</span></div><div class="inputBox w50" id="yop" style="padding-top:25px"><input type="text" name="" required><span>Year of Completion</span></div>');
+        }
+  });
+    $("#ch3").click(function(){
+        if(!$(this).is(':checked')){
+            $("#abt").remove();
+            $("#yop").remove();
+        }
+        else{
+            $("#ch3").after('<div class="inputBox w100" id="abt" style="padding-top:25px"><textarea name="" required></textarea><span>About the Degree</span></div><div class="inputBox w50" id="yop" style="padding-top:25px"><input type="text" name="" required><span>Year of Completion</span></div>');
+        }
+  });
+});
+</script>
+
+
+<!-- FOR THE SECOND CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch4").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch4").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+    $("#ch5").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch5").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+    $("#ch6").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch6").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+});
+</script>
+
+
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'personal' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <section>
+        <div class="container">
+        <form class="email_form" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h2>Email Form - </h2>
+                <div class="formBox">
+                    <div class="inputBox w100">
+                        <input type="text" name="from_mail" required>
+                        <span>From mail id - </span>
+                    </div>
+                    <div class="inputBox w100">
+                        <input type="text" name="to_mail" required>
+                        <span>To mail id - </span>
+                    </div>
+                    <div class="inputBox w100">
+                        <input type="text" name="subject" required>
+                        <span>Subject</span>
+                    </div>
+                    <div class="inputBox w100" id="adrs" style="padding-top: 20px">
+                        <textarea name="message" required></textarea>
+                        <span>Message</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="submit" value="Send" id="btn1">
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        </section>
+    </body>
+{% if flag1 %}
+<script>
+    alert("Email sent Successfully!")
+</script>
+{% endif %}
+</html>

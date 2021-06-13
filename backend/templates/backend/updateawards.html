@@ -1,0 +1,158 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'styleaw.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        section:before{background: #ff6961}
+    </style>
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="{% url 'personal' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Personal</a></li>
+                <li><a href="{% url 'evcon' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Conducted</a></li>
+                <li><a href="{% url 'eveat' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Attended</a></li>
+                <li><a href="{% url 'awards' %}" style="text-align: center; color: #03a9f4; text-decoration: none;">Achievements And Awards</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <body>
+        {% if flag5 %}
+            <h1>11111</h1>
+        {% endif %}
+        <section>
+        <div class="container">
+            <div class="contactinfo">
+                <div>
+                    <h2>Requests :</h2>
+                    <ul class="info">
+                        <form class="aw" method="post" id="updateform" name="updateform">
+                        {% csrf_token %}
+                        <li>
+                            <span><i class="fas fa-pen"></i></span>
+                            <span><input type="submit" value="Update Award Details" name="updateaward" style="border:none;background:none;color: white; font-size: 18px"></span>
+                        </li>
+                        </form>
+                        <li>
+                            <span><i class="fas fa-file"></i></span>
+                            <span>Upload award soft copy</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <form class="aw" method="post" id="submitform" name="submitform">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h2>Awards and Achievements Update Form  </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyname">
+                        <span style="font-size: 15px">Faculty Name - {{facultyname}}</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid">
+                        <span style="font-size: 15px">Faculty id - {{facultyid}}</span>
+                    </div>
+                    <div class="inputBox w50" id="dob">
+                        <input type="date" name="dateawarded">
+                        <span style="font-size: 15px">Date awarded - {{dateawarded}}</span>
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="text" name="awardname">
+                        <span style="font-size: 15px">Award name - {{awardname}}</span>
+                    </div>
+                    <div class="inputBox w100" id="" style="padding-top: 20px">
+                        <textarea name="awarddescription" maxlength="100"></textarea>
+                        <span style="font-size: 15px">Award Description - {{awarddescription}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Department</h2></label>
+                    <div class="inputBox w50" id="dept" style="margin-top: -20px">
+                          <select name="dept" id="depts">
+                            {% ifequal department "1" %}
+                            <option value="1" selected>CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal department "2" %}
+                            <option value="1">CSE</option>
+                            <option value="2" selected>ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal department "3" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3" selected>EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal department "4" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4" selected>MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal department "5" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5" selected>CIVIL</option>
+                            {% endifequal %}
+                          </select>
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <input type="text" name="awardedby" >
+                        <span style="font-size: 15px">Awarded by - {{awardedby}}</span>
+                    </div>
+                    <br><br>
+                    <div class="inputBox w50">
+                        <input type="submit" value="Update" id="btn1" name="updateaward">
+                    </div>
+                    <div class="inputBox w50">
+                        <input type="submit" value="Delete" id="btn2" name="deleteaward">
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        </section>
+{% if flagtest1 %}
+<script>
+    alert("Please Enter your valid Faculty Name as mentioned in Personal Details")
+</script>
+{% endif %}
+{% if flagtest2 %}
+<script>
+    alert("Please Enter your valid Faculty id as mentioned in Personal Details")
+</script>
+{% endif %}
+{% if flagupdate %}
+    <script>
+        alert("Award Details Has been Updated")
+    </script>
+{% endif %}
+    </body>
+</html>

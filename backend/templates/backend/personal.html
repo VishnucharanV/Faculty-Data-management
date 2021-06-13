@@ -1,0 +1,280 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'stylepersonal.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% if flagz  %}
+    <script>
+        alert("Sucessfully Logged In")
+    </script>
+{% endif %}
+<script>
+$(document).ready(function(){
+    $("#ch1").click(function(){
+        if(!$(this).is(':checked')){
+            $("#abt").remove();
+            $("#yop").remove();
+        }
+        else{
+            $("#ch1").after('<div class="inputBox w100" id="abt" style="padding-top:25px"><textarea name="ugabout" required></textarea>{% if flagper %}<span>About the Degree - {{ugabout}}{% else %}<span>About the Degree</span>{% endif %}</span></div><div class="inputBox w50" id="yop" style="padding-top:25px"><input type="text" name="ugyear" required>{% if flagper %}<span>Year of Completion - {{ugyear}}</span>{% else %}<span>Year of Completion</span>{% endif %}</div>');
+        }
+  });
+    $("#ch2").click(function(){
+        if(!$(this).is(':checked')){
+            $("#abt").remove();
+            $("#yop").remove();
+        }
+        else{
+            $("#ch2").after('<div class="inputBox w100" id="abt" style="padding-top:25px"><textarea name="pgabout" required></textarea>{% if flagper %}<span>About the Degree - {{pgabout}}</span>{% else %}<span>About the Degree</span>{% endif %}</div><div class="inputBox w50" id="yop" style="padding-top:25px"><input type="text" name="pgyear" required>{% if flagper %}<span>Year of Completion - {{pgyear}}</span>{% else %}<span>Year of Completion</span>{% endif %}</div>');
+        }
+  });
+    $("#ch3").click(function(){
+        if(!$(this).is(':checked')){
+            $("#abt").remove();
+            $("#yop").remove();
+        }
+        else{
+            $("#ch3").after('<div class="inputBox w100" id="abt" style="padding-top:25px"><textarea name="phdabout" required></textarea>{% if flagper %}<span>About the Degree - {{phdabout}}</span>{% else %}<span>About the Degree</span>{% endif %}</div><div class="inputBox w50" id="yop" style="padding-top:25px"><input type="text" name="phdyear" required>{% if flagper %}<span>Year of Completion - {{phdyear}}</span>{% else %}<span>Year of Completion</span>{% endif %}</div>');
+        }
+  });
+});
+</script>
+
+
+<!-- FOR THE SECOND CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch4").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch4").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="ac_name" required>{% if flagper %}<span>Company Name - {{ac_name}}</span>{% else %}<span>Company Name</span>{% endif %}</div><div class="inputBox w50" id="fr"><input type="date" name="ac_from" required>{% if flagper %}<span>From - {{ac_from}}</span>{% else %}<span>From</span>{% endif %}</div><div class="inputBox w50" id="to"><input type="date" name="ac_to" required>{% if flagper %}<span>To - {{ac_to}}</span>{% else %}<span>To</span>{% endif %}</div>');
+        }
+  });
+    $("#ch5").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch5").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="in_name" required>{% if flagper %}<span>Company Name - {{in_name}}</span>{% else %}<span>Company Name</span>{% endif %}</div><div class="inputBox w50" id="fr"><input type="date" name="in_from" required>{% if flagper %}<span>From - {{in_from}}</span>{% else %}<span>From</span>{% endif %}</div><div class="inputBox w50" id="to"><input type="date" name="in_to" required>{% if flagper %}<span>To - {{in_to}}</span>{% else %}<span>To</span>{% endif %}</div>');
+        }
+  });
+    $("#ch6").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch6").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="re_name" required>{% if flagper %}<span>Company Name - {{re_name}}</span>{% else %}<span>Company Name</span>{% endif %}</div><div class="inputBox w50" id="fr"><input type="date" name="re_from" required>{% if flagper %}<span>From - {{re_from}}</span>{% else %}<span>From</span>{% endif %}</div><div class="inputBox w50" id="to"><input type="date" name="re_to" required>{% if flagper %}<span>To - {{re_to}}</span>{% else %}<span>To</span>{% endif %}</div>');
+        }
+  });
+});
+</script>
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="#" style="text-align: center; color: #03a9f4; text-decoration: none;">Personal</a></li>
+                <li><a href="{% url 'evcon' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Conducted</a></li>
+                <li><a href="{% url 'eveat' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Attended</a></li>
+                <li><a href="{% url 'awards' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Achievements And Awards</a></li>
+                <li><a href="{% url 'report' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Frame Report</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <section>
+        <div class="container">
+            <div class="contactinfo">
+                <div>
+                    <h2>Requests :</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class="fas fa-envelope"></i></span>
+                            <span><a href="{% url 'email' %}" style="text-decoration: none;color: #efefef;font-size: 18px">Email</a></span>
+                        </li>
+                        <li>
+                            <span><i class="fab fa-whatsapp"></i></span>
+                            <span>Whatsapp</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <form class="pe" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h2>Enter Your Personal Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        {% if flagper %}
+                        <input type="text" name="facultyname" id="facultyname">
+                        <span>Faculty Name - {{facultyname}}</span>
+                        {% else %}
+                        <input type="text" name="facultyname" id="facultyname" required>
+                        <span>Faculty Name</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w50">
+                        {% if flagper %}
+                        <input type="text" name="facultyid">
+                        <span>Faculty id - {{facultyid}}</span>
+                        {% else %}
+                        <input type="text" name="facultyid" required>
+                        <span>Faculty ID</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w50">
+                        {% if flagper %}
+                        <input type="text" name="annaid">
+                        <span>Anna University Id - {{annaid}}</span>
+                        {% else %}
+                        <input type="text" name="annaid" required>
+                        <span>Anna University ID</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w50">
+                        {% if flagper %}
+                        <input type="text" name="aicteid">
+                        <span>Aicte id - {{aicteid}}</span>
+                        {% else %}
+                        <input type="text" name="aicteid" required>
+                        <span>Aicte ID</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w50">
+                        {% if flagper %}
+                        <input type="text" name="emailid">
+                        <span>Email id - {{emailid}}</span>
+                        {% else %}
+                        <input type="text" name="emailid" required>
+                        <span>Email ID</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w50" id="phone">
+                        {% if flagper %}
+                        <input type="text" name="mobileno">
+                        <span>Mobile Number - {{mobileno}}</span>
+                        {% else %}
+                        <input type="text" name="mobileno" required>
+                        <span>Mobile Number</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w50" id="dob">
+                        {% if flagper %}
+                        <input type="date" name="dob">
+                        <span>Date of Birth - {{dob}}</span>
+                        {% else %}
+                        <input type="date" name="dob" required>
+                        <span>Date of Birth</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w100" id="adrs" style="padding-top: 20px">
+                        {% if flagper %}
+                        <textarea name="address"></textarea>
+                        <span>Address - {{address}}</span>
+                        {% else %}
+                        <textarea name="address" required></textarea>
+                        <span>Address</span>
+                        {% endif %}
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Blood Group : </h2></label>
+                    <div class="inputBox w50" id="bg" style="margin-top: -20px">
+                          <select name="bg" id="bgs">
+                            <option value="1">B+ve</option>
+                            <option value="2">B-ve</option>
+                            <option value="3">A+ve</option>
+                            <option value="4">A-ve</option>
+                            <option value="5">O+ve</option>
+                            <option value="6">O-ve</option>
+                            <option value="7">AB+ve</option>
+                              <option value="8">AB-ve</option>
+                          </select>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Department</h2></label>
+                    <div class="inputBox w50" id="dept" style="margin-top: -20px">
+                          <select name="dept" id="depts">
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                          </select>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Qualifications : </h2></label>
+                    <div class="inputBox w100">
+                        <span>Under Grad</span>
+                        {% if flagper %}
+                        <input type="checkbox" id="ch1" name="checkbox" value = "1">
+                        {% else %}
+                        <input type="checkbox" id="ch1" name="checkbox" value = "1" required>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w100">
+                        <span>Post Grad</span>
+                        <input type="checkbox" id="ch2" name="checkbox" value = "2">
+                    </div>
+                    <div class="inputBox w100">
+                        <span>PHD</span>
+                        <input type="checkbox" id="ch3" name="checkbox"
+                        value = "3">
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Experience : </h2></label>
+                    <div class="inputBox w100">
+                        <span>Academic</span>
+                        <input type="checkbox" id="ch4" name="checkbox"
+                        value = "4">
+                    </div>
+                    <div class="inputBox w100">
+                        <span>Industry</span>
+                        <input type="checkbox" id="ch5" name="checkbox"
+                        value = "5">
+                    </div>
+                    <div class="inputBox w100">
+                        <span>Research</span>
+                        <input type="checkbox" id="ch6" name="checkbox"
+                        value = "6">
+                    </div>
+                    <div class="inputBox w100" id="aoi" style="padding-top: 20px">
+                        {% if flagper %}
+                        <textarea name="aoi"></textarea>
+                        <span>Area of Interest - {{aoi}}</span>
+                        {% else %}
+                        <textarea name="aoi" required=""></textarea>
+                        <span>Area of Interest</span>
+                        {% endif %}
+                    </div>
+                    <div class="inputBox w100">
+                        <input type="submit" value="Send" id="btn1">
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        </section>
+    </body>
+</html>

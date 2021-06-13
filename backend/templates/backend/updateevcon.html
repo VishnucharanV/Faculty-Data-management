@@ -1,0 +1,430 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'stylecon.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        section:before{background: #ffd400}
+    </style>
+
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="{% url 'personal' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Personal</a></li>
+                <li><a href="{% url 'evcon' %}" style="text-align: center; color: #03a9f4; text-decoration: none;">Events Conducted</a></li>
+                <li><a href="{% url 'eveat' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Attended</a></li>
+                <li><a href="{% url 'awards' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Achievements And Awards</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <section>
+        <div class="container">
+            <div class="contactinfo">
+                <div>
+                    <h2>Requests :</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class="fas fa-pen"></i></span>
+                            <span><a href="{% url 'update1' %}" style="text-decoration: none;color: #efefef;font-size: 18px">Update Events Conducted Details</a></span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-file"></i></span>
+                            <span>Soft copy for Personal Details</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        <form class="ec" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                {% ifequal flagval "1" %}
+                <h2>Update Events Conducted Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Facultyid - {{facultyid}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : Faculty Development Program</h2></label>
+                    <div class="inputBox w50" id="evtt" style="padding-top:25px">
+                        <input type="text" name="eventtitle">
+                        <span>Program Title - {{eventtitle}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpn" style="padding-top:25px">
+                        <input type="text" name="rpname">
+                        <span>Resource Person Name - {{rpname}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpd" style="padding-top:25px">
+                        <input type="text" name="rpdesig">
+                        <span>Resource Person Designation - {{rpdesig}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpc" style="padding-top:25px">
+                        <input type="text" name="rpcompany">
+                        <span>Resource Person Company - {{rpcompany}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpp" style="padding-top:25px">
+                        <input type="text" name="rpphone">
+                        <span>Resource Person Phone No - {{rpphone}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpm" style="padding-top:25px">
+                        <input type="text" name="rpmail">
+                        <span>Resource Person Mail id - {{rpmail}}</span>
+                    </div>
+                    <div class="inputBox w50" id="ooe" style="padding-top:25px">
+                        <input type="text" name="organizer">
+                        <span>Organizer of Event - {{organizer}}</span>
+                    </div>
+                    <div class="inputBox w50" id="doe" style="padding-top:25px">
+                        <input type="date" name="date">
+                        <span>{{date}}</span>
+                    </div>
+                    <div class="inputBox w50" id="nob" style="padding-top:25px">
+                        <input type="text" name="nofac">
+                        <span>No. of Faculty Benefited - {{nofac}}</span>
+                    </div>
+                    <div class="inputBox w100" id="ed" style="padding-top: 20px">
+                        <textarea name="eventdesc"></textarea>
+                        <span>Event Description - {{eventdesc}}</span>
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Update" id="btn1" name="Updateevent">
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Delete" id="btn1" name="Delevent">
+                    </div>
+                </div>
+            {% endifequal %}
+                {% ifequal flagval "2" %}
+                <h2>Update Events Conducted Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Faculty id - {{facultyid}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : Department Association Activities</h2></label>
+                    <div class="inputBox w50" id="evtt" style="padding-top:25px">
+                        <input type="text" name="eventtitle">
+                        <span>Activity Title - {{eventtitle}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpn" style="padding-top:25px">
+                        <input type="text" name="rpname">
+                        <span>Resource Person Name - {{rpname}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpd" style="padding-top:25px">
+                        <input type="text" name="rpdesig">
+                        <span>Resource Person Designation - {{rpdesig}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpc" style="padding-top:25px">
+                        <input type="text" name="rpcompany">
+                        <span>Resource Person Company - {{rpcompany}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpp" style="padding-top:25px">
+                        <input type="text" name="rpphone">
+                        <span>Resource Person Phone no - {{rpphone}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpm" style="padding-top:25px">
+                        <input type="text" name="rpmail">
+                        <span>Resource Person Mail id - {{rpmail}}</span>
+                    </div>
+                    <div class="inputBox w50" id="ooe" style="padding-top:25px">
+                        <input type="text" name="organizer">
+                        <span>Organizer of Event - {{organizer}}</span>
+                    </div>
+                    <div class="inputBox w50" id="doe" style="padding-top:25px">
+                        <input type="date" name="date">
+                        <span>{{date}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Department</h2></label>
+                    <div class="inputBox w50" id="dept" style="margin-top: -20px">
+                          <select name="dept" id="depts">
+                            {% ifequal dept "1" %}
+                            <option value="1" selected>CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "2" %}
+                            <option value="1">CSE</option>
+                            <option value="2" selected>ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "3" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3" selected>EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "4" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4" selected>MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "5" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5" selected>CIVIL</option>
+                            {% endifequal %}
+                          </select>
+                    </div>
+                    <div class="inputBox w100" id="ed" style="padding-top: 20px">
+                        <textarea name="eventdesc"></textarea>
+                        <span>Event Description - {{eventdesc}}</span>
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Update" id="btn1" name="Updateevent">
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Delete" id="btn1" name="Delevent">
+                    </div>
+                </div>
+            {% endifequal %}
+                {% ifequal flagval "3" %}
+                <h2>Update Events Conducted Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Faculty id - {{facultyid}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : Value Added Courses</h2></label>
+                    <div class="inputBox w50" id="evtt" style="padding-top:25px">
+                        <input type="text" name="eventtitle">
+                        <span>Course Title - {{eventtitle}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpn" style="padding-top:25px">
+                        <input type="text" name="rpname">
+                        <span>Resource Person Name - {{rpname}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpd" style="padding-top:25px">
+                        <input type="text" name="rpdesig">
+                        <span>Resource Person Designation - {{rpdesig}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpc" style="padding-top:25px">
+                        <input type="text" name="rpcompany">
+                        <span>Resource Person Company - {{rpcompany}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpp" style="padding-top:25px">
+                        <input type="text" name="rpphone">
+                        <span>Resource Person Phone No - {{rpphone}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpm" style="padding-top:25px">
+                        <input type="text" name="rpmail">
+                        <span>Resource Person Mail id - {{rpmail}}</span>
+                    </div>
+                    <div class="inputBox w50" id="ooe" style="padding-top:25px">
+                        <input type="text" name="organizer">
+                        <span>Organizer of Event - {{organizer}}</span>
+                    </div>
+                    <div class="inputBox w50" id="doe" style="padding-top:25px">
+                        <input type="date" name="date">
+                        <span>{{date}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Department</h2></label>
+                    <div class="inputBox w50" id="dept" style="margin-top: -20px">
+                          <select name="dept" id="depts">
+                            {% ifequal dept "1" %}
+                            <option value="1" selected>CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "2" %}
+                            <option value="1">CSE</option>
+                            <option value="2" selected>ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "3" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3" selected>EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "4" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4" selected>MECH</option>
+                            <option value="5">CIVIL</option>
+                            {% endifequal %}
+                            {% ifequal dept "5" %}
+                            <option value="1">CSE</option>
+                            <option value="2">ECE</option>
+                            <option value="3">EEE</option>
+                            <option value="4">MECH</option>
+                            <option value="5" selected>CIVIL</option>
+                            {% endifequal %}
+                          </select>
+                    </div>
+                    <div class="inputBox w50" id="nob" style="padding-top:25px">
+                        <input type="text" name="nostud">
+                        <span>No. of Students Benefited - {{nostud}}</span>
+                    </div>
+                    <div class="inputBox w100" id="ed" style="padding-top: 20px">
+                        <textarea name="eventdesc"></textarea>
+                        <span>Event Description - {{eventdesc}}</span>
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Update" id="btn1" name="Updateevent">
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Delete" id="btn1" name="Delevent">
+                    </div>
+                </div>
+            {% endifequal %}
+                {% ifequal flagval "4" %}
+                <h2>Update Events Conducted Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Facultyid - {{facultyid}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : Guest Lecture conducted</h2></label>
+                    <div class="inputBox w50" id="evtt" style="padding-top:25px">
+                        <input type="text" name="eventtitle">
+                        <span>Lecture Title - {{eventtitle}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpn" style="padding-top:25px">
+                        <input type="text" name="rpname">
+                        <span>Resource Person Name - {{rpname}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpd" style="padding-top:25px">
+                        <input type="text" name="rpdesig">
+                        <span>Resource Person Designation - {{rpdesig}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpc" style="padding-top:25px">
+                        <input type="text" name="rpcompany">
+                        <span>Resource Person Company - {{rpcompany}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpp" style="padding-top:25px">
+                        <input type="text" name="rpphone">
+                        <span>Resource Person Phone No - {{rpphone}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpm" style="padding-top:25px">
+                        <input type="text" name="rpmail">
+                        <span>Resource Person Mail id - {{rpmail}}</span>
+                    </div>
+                    <div class="inputBox w50" id="ooe" style="padding-top:25px">
+                        <input type="text" name="organizer">
+                        <span>Organizer of Event - {{organizer}}</span>
+                    </div>
+                    <div class="inputBox w50" id="doe" style="padding-top:25px">
+                        <input type="date" name="date">
+                        <span>{{date}}</span>
+                    </div>
+                    <div class="inputBox w50" id="nob" style="padding-top:25px">
+                        <input type="text" name="nostud">
+                        <span>No. of Students Benefited - {{nostud}}</span>
+                    </div>
+                    <div class="inputBox w100" id="ed" style="padding-top: 20px">
+                        <textarea name="eventdesc"></textarea>
+                        <span>Event Description - {{eventdesc}}</span>
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Update" id="btn1" name="Updateevent">
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Delete" id="btn1" name="Delevent">
+                    </div>
+                </div>
+            {% endifequal %}
+                {% ifequal flagval "5" %}
+                <h2>Update Events Conducted Details - </h2>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Faculty id - {{facultyid}}</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : Workshop Conducted</h2></label>
+                    <div class="inputBox w50" id="evtt" style="padding-top:25px">
+                        <input type="text" name="eventtitle">
+                        <span>Workshop Title - {{eventtitle}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpn" style="padding-top:25px">
+                        <input type="text" name="rpname">
+                        <span>Resource Person Name - {{rpname}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpd" style="padding-top:25px">
+                        <input type="text" name="rpdesig">
+                        <span>Resource Person Designation - {{rpdesig}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpc" style="padding-top:25px">
+                        <input type="text" name="rpcompany">
+                        <span>Resource Person Company - {{rpcompany}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpp" style="padding-top:25px">
+                        <input type="text" name="rpphone">
+                        <span>Resource Person Phone no - {{rpphone}}</span>
+                    </div>
+                    <div class="inputBox w50" id="rpm" style="padding-top:25px">
+                        <input type="text" name="rpmail">
+                        <span>Resource Person Mail id - {{rpmail}}</span>
+                    </div>
+                    <div class="inputBox w50" id="ooe" style="padding-top:25px">
+                        <input type="text" name="organizer">
+                        <span>Organizer of Event - {{organizer}}</span>
+                    </div>
+                    <div class="inputBox w50" id="doe" style="padding-top:25px">
+                        <input type="date" name="date">
+                        <span>{{date}}</span>
+                    </div>
+                    <div class="inputBox w50" id="nob" style="padding-top:25px">
+                        <input type="text" name="nostud">
+                        <span>No. of Students Benefited - {{nostud}}</span>
+                    </div>
+                    <div class="inputBox w100" id="ed" style="padding-top: 20px">
+                        <textarea name="eventdesc"></textarea>
+                        <span>Event Description - {{eventdesc}}</span>
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Update" id="btn1" name="Updateevent">
+                    </div>
+                    <div class="inputBox w50" style="padding-top: 20px">
+                        <input type="submit" value="Delete" id="btn1" name="Delevent">
+                    </div>
+                </div>
+            {% endifequal %}
+                </div>
+        </form>
+        </div>
+    </section>
+        </section>
+    </body>
+{% if flagupdate %}
+    <script>
+        alert("Events Conducted Details Has been Updated")
+    </script>
+{% endif %}
+</html>
+

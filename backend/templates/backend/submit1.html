@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Submission Form</title>
+        <link rel="stylesheet" href="styleaw.css">
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+          crossorigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body{
+                background: white;
+            }
+            h1{
+                margin-left:150px;
+                margin-top: 100px;
+                font-size: 40px;
+            }
+            .first{
+                margin-top: 75px;
+                margin-left: 50px;
+            }
+            .first h3{
+                font-size: 30px;
+            }
+            .first p{
+                font-weight: 1000;
+                font-size: 23px;
+            }
+            .first .qual .p{
+                font-weight: 1000;
+                font-size: 20px;
+                margin-left: 40px;
+            }
+            .first .exp .p{
+                font-weight: 1000;
+                font-size: 20px;
+                margin-left: 40px;
+            }
+            .first .firsthr hr{
+                border: 1px solid black;
+                margin-left: -5px;
+                width: 1800px;
+            }
+            .first .secondhr hr{
+                border: 1px solid black;
+                margin-left: -5px;
+                margin-top: -40px;
+                width: 1800px;
+            }
+            .second{
+                margin-left:50px;
+                margin-top: 50px;
+            }
+            .second h3{
+                font-size: 30px;
+            }
+            .second p{
+                font-weight: 1000;
+                font-size: 23px;
+            }
+            .second hr{
+                border: 1px solid black;
+                margin-left: -5px;
+                width: 1800px;
+            }
+            .thirdhr hr{
+                border: 1px solid black;
+                margin-left:45px;
+                margin-top: -40px;
+                width: 1800px;
+            }
+            .third{
+                margin-left:50px;
+                margin-top: 50px;
+            }
+            .third h3{
+                font-size: 30px;
+            }
+            .third p{
+                font-weight: 1000;
+                font-size: 23px;
+            }
+            .third hr{
+                border: 1px solid black;
+                margin-left: -5px;
+                width: 1800px;
+            }
+            .fourth{
+                margin-left:50px;
+                margin-top: 50px;
+            }
+            .fourth h3{
+                font-size: 30px;
+            }
+            .fourth p{
+                font-weight: 1000;
+                font-size: 23px;
+            }
+            .fourth hr{
+                border: 1px solid black;
+                margin-left: -5px;
+                width: 1800px;
+            }
+            .fourthhr hr{
+                border: 1px solid black;
+                margin-left:45px;
+                margin-top: -40px;
+                width: 1800px;
+            }
+            .btn1 input[type="submit"]{
+                font-size: 20px;
+                margin-left: 750px;
+                margin-top: 60px;
+                cursor: pointer;
+                background: #0f3959;
+                color: #fff;
+                border: none;
+                max-width: 150px;
+                padding: 12px;
+            }
+            .btn2 input[type="submit"]{
+                margin-left: 750px;
+                margin-top: 40px;
+                font-size: 20px;
+                cursor: pointer;
+                background: #0f3959;
+                color: #fff;
+                border: none;
+                max-width: 150px;
+                padding: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>REPORT SUBMISSION - {{name}}</h1>
+        {% if flag1 %}
+        <div class="first">
+            {% for i in persobj %}
+            <h3>Personal Details :-</h3>
+            <p>Faculty Name - {{i.facultyname}}</p>
+            <p>Faculty ID - {{i.facultyid}}</p>
+            <p>Anna Univ ID - {{i.annaid}}</p>
+            <p>AICTE ID - {{i.aicteid}}</p>
+            <p>Email ID - {{i.emailid}}</p>
+            <p>Mobile No - {{i.phoneno}}</p>
+            <p>Date of Birth - {{i.dob}}</p>
+            <p>Adress - {{i.address}}</p>
+            <p>Blood Group - {{i.bgroup}}</p>
+            <p>Department - {{i.department}}</p>
+            <hr>
+            <p>Qualifications - </p>
+            <div class="qual">
+            <ul>
+            <li><p>UG :-</p></li>
+            <p>About :- {{i.ugabout}}</p>
+            <p>Year of Completion - {{i.ugyear}}</p>
+            <li><p>PG :-</p></li>
+            <p>About :- {{i.pgabout}}</p>
+            <p>Year of Completion - {{i.pgyear}}</p>
+            <li><p>PHD :-</p></li>
+            <p>About :- {{i.phdabout}}</p>
+            <p>Year of Completion - {{i.phdyear}}</p>
+            </ul><hr>
+            </div>
+            <p>Experience - </p>
+            <div class="exp">
+            <ul>
+            <li><p>Academic :-</p></li>
+            <p>Company Name :- {{i.acname}}</p>
+            <p>From :- {{i.from}}</p>
+                <p>To :- {{i.to}}</p>
+            <li><p>Industrial :-</p></li>
+            <p>Company Name :- {{i.inname}}</p>
+            <p>From :- {{i.infrom}}</p>
+                <p>To :- {{i.into}}</p>
+            <li><p>Research :-</p></li>
+            <p>Company Name :- {{i.rename}}</p>
+            <p>From :- {{refrom}}</p>
+            <p>To :- {{reto}}</p>
+            </ul>
+            </div>
+            <br><div class="firsthr"><hr></div><br>
+            <br><div class="secondhr"><hr></div><br>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if flag2 %}
+        {% for i in evconobj %}
+        {% for j in i %}
+        <div class="second">
+            <h3>Events Conducted :-</h3>
+            {% ifequal j.eventtype '1' %}
+            <p>Event Type - Faculty Development Program</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '2' %}
+            <p>Event Type - Department Association Activites</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '3' %}
+            <p>Event Type - Value Added Courses Conducted</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '4' %}
+            <p>Event Type - Guest Lecture Conducted</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '5' %}
+            <p>Event Type - Workshop Conducte</p>
+            {% endifequal %}
+            <p>Event Name - {{j.eventtitle}}</p>
+            <p>Resource Person Name - {{j.rpname}}</p>
+            <p>Resource Person Designation - {{j.rpdesig}}</p>
+            <p>Resource Person Company - {{j.rpcompany}}</p>
+            <p>Resource Person Phone no - {{j.rpphone}}</p>
+            <p>Resource Person Mail id - {{j.rpmail}}</p>
+            <p>Organizer of Event - {{j.organizer}}</p>
+            <p>Date of Event - {{j.date}}</p>
+            <p>No. of Beneficiaries - {{j.nofac}}</p>
+            <p>Event Description - {{j.eventdesc}}</p>
+            <br><hr><br>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+        {% if flag4 %}
+        {% for i in evatobj %}
+        {% for j in i %}
+        <div class="fourth">
+            <h3>Events Attended :-</h3>
+            {% ifequal j.eventtype '1' %}
+            <p>Event Type - International Conference</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '2' %}
+            <p>Event Type - PSG CARE Program</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '3' %}
+            <p>Event Type - Workshop</p>
+            {% endifequal %}
+            {% ifequal j.eventtype '4' %}
+            <p>Event Type - Online Course</p>
+            {% endifequal %}
+            <p>Faculty Name - {{j.facultyname}}</p>
+            <p>Faculty Designation - {{j.facultydesig}}</p>
+            <p>Faculty Department - {{j.facultydep}}</p>
+            <p>Event Name - {{j.eventname}}</p>
+            <p>Event By - {{j.eventby}}</p>
+            <p>Event Description - {{j.eventdesc}}</p>
+            <p>Venue - {{j.venue}}</p>
+            <p>Date of Event - {{j.date}}</p>
+            <br><hr><br>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+        <br><div class="thirdhr"><hr></div><br>
+        {% if flag3 %}
+        {% for i in awardobj %}
+        {% for j in i %}
+        <div class="third">
+            <h3>Awards and Achievements :-</h3>
+            <p>Faculty Name - {{j.facultyname}}</p>
+            <p>Faculty Id - {{j.facultyid}}</p>
+            <p>Date Awarded - {{j.dateawarded}}</p>
+            <p>Award Name - {{j.awardname}}</p>
+            <p>Award Description - {{j.awarddescription}}</p>
+            <p>Department - {{j.department}}</p>
+            <p>Awarded By - {{j.awardedby}}</p>
+            <br><hr><br>
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+        <br><div class="fourthhr"><hr></div><br>
+        <form method="post" style="height: 250px">
+            {% csrf_token %}
+            <div class="btn1"><input type="submit" name="View PDF File" id="btn1" value="View PDF File"></div>
+            <div class="btn2"><input type="submit" name="Download PDF File" id="btn2" value="Download PDF File"></div>
+        </form>
+    </body>
+</html>

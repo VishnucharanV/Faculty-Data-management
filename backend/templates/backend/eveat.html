@@ -1,0 +1,213 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'styleat.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<!-- FOR THE FIRST CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch30").click(function(){
+        if(!$(this).is(':checked')){
+            $("#fn1").remove();
+            $("#fds1").remove();
+            $("#fde1").remove();
+            $("#cn1").remove();
+            $("#ccb1").remove();
+            $("#ven1").remove();
+            $("#doc1").remove();
+            $("#cd1").remove();
+        }
+        else{
+            $("#ch30").after('<div class="inputBox w50" id="fn1" style="padding-top:25px"><input type="text" name="ifname" required><span>Faculty Name</span></div><div class="inputBox w50" id="fds1" style="padding-top:25px"><input type="text" name="ifdesig" required><span>Faculty Designation</span></div><div class="full" id="fde1"><label class="inputBox w100" style="padding-top: 20px"><h2>Faculty Department</h2></label><div class="inputBox w50" id="dept" style="margin-top: 15px"><select name="ifdept" id="dts"><option value="1">CSE</option><option value="2">ECE</option><option value="3">EEE</option><option value="4">MECH</option><option value="5">CIVIL</option></select></div></div><div class="inputBox w50" id="cn1" style="padding-top:25px"><input type="text" name="iname" required><span>Conference Name</span></div><div class="inputBox w50" id="ccb1" style="padding-top:25px"><input type="text" name="iby" required><span>Conference Conducted by</span></div><div class="inputBox w50" id="ven1" style="padding-top:25px"><input type="text" name="ivenue" required><span>Venue of Conference</span></div><div class="inputBox w50" id="doc1" style="padding-top:25px"><input type="date" name="idate" required><span>Date of Conference</span></div><div class="inputBox w100" id="cd1" style="padding-top: 20px"><textarea name="idesc" required></textarea><span>Conference Description</span></div>');
+        }
+  });
+    $("#ch31").click(function(){
+        if(!$(this).is(':checked')){
+            $("#fn2").remove();
+            $("#fds2").remove();
+            $("#fde2").remove();
+            $("#cpn2").remove();
+            $("#cb2").remove();
+            $("#ven2").remove();
+            $("#doc2").remove();
+            $("#cpd2").remove();
+        }
+        else{
+            $("#ch31").after('<div class="inputBox w50" id="fn2" style="padding-top:25px"><input type="text" name="pfname" required><span>Faculty Name</span></div><div class="inputBox w50" id="fds2" style="padding-top:25px"><input type="text" name="pfdesig" required><span>Faculty Designation</span></div><div class="full" id="fde2"><label class="inputBox w100" style="padding-top: 20px"><h2>Faculty Department</h2></label><div class="inputBox w50" id="dept" style="margin-top: 15px"><select name="pfdept" id="dts"><option value="1">CSE</option><option value="2">ECE</option><option value="3">EEE</option><option value="4">MECH</option><option value="5">CIVIL</option></select></div></div><div class="inputBox w50" id="cpn2" style="padding-top:25px"><input type="text" name="pname" required><span>CARE Program Name</span></div><div class="inputBox w50" id="cb2" style="padding-top:25px"><input type="text" name="pby" required><span>Program Conducted by</span></div><div class="inputBox w50" id="ven2" style="padding-top:25px"><input type="text" name="pvenue" required><span>Venue of Program</span></div><div class="inputBox w50" id="doc2" style="padding-top:25px"><input type="date" name="pdate" required><span>Date of Program</span></div><div class="inputBox w100" id="cpd2" style="padding-top: 20px"><textarea name="pdesc" required></textarea><span>CARE Program Details</span></div>');
+        }
+  });
+    $("#ch32").click(function(){
+        if(!$(this).is(':checked')){
+            $("#fn3").remove();
+            $("#fds3").remove();
+            $("#fde3").remove();
+            $("#wn3").remove();
+            $("#wb3").remove();
+            $("#ven3").remove();
+            $("#doc3").remove();
+            $("#wd3").remove();
+        }
+        else{
+            $("#ch32").after('<div class="inputBox w50" id="fn3" style="padding-top:25px"><input type="text" name="wfname" required><span>Faculty Name</span></div><div class="inputBox w50" id="fds3" style="padding-top:25px"><input type="text" name="wfdesig" required><span>Faculty Designation</span></div><div class="full" id="fde3"><label class="inputBox w100" style="padding-top: 20px"><h2>Faculty Department</h2></label><div class="inputBox w50" id="dept" style="margin-top: 15px"><select name="wfdept" id="dts"><option value="1">CSE</option><option value="2">ECE</option><option value="3">EEE</option><option value="4">MECH</option><option value="5">CIVIL</option></select></div></div><div class="inputBox w50" id="wn3" style="padding-top:25px"><input type="text" name="wname" required><span>Workshop Name</span></div><div class="inputBox w50" id="wb3" style="padding-top:25px"><input type="text" name="wby" required><span>Workshop Conducted by</span></div><div class="inputBox w50" id="ven3" style="padding-top:25px"><input type="text" name="wvenue" required><span>Venue of Workshop</span></div><div class="inputBox w50" id="doc3" style="padding-top:25px"><input type="date" name="wdate" required><span>Date of Workshop</span></div><div class="inputBox w100" id="wd3" style="padding-top: 20px"><textarea name="wdesc" required></textarea><span>Workshop Description</span></div>');
+        }
+  });
+    $("#ch33").click(function(){
+        if(!$(this).is(':checked')){
+            $("#fn4").remove();
+            $("#fds4").remove();
+            $("#fde4").remove();
+            $("#on4").remove();
+            $("#ob4").remove();
+            $("#cp4").remove();
+            $("#cd4").remove();
+            $("#od4").remove();
+        }
+        else{
+            $("#ch33").after('<div class="inputBox w50" id="fn4" style="padding-top:25px"><input type="text" name="ofname" required><span>Faculty Name</span></div><div class="inputBox w50" id="fds4" style="padding-top:25px"><input type="text" name="ofdesig" required><span>Faculty Designation</span></div><div class="full" id="fde4"><label class="inputBox w100" style="padding-top: 20px"><h2>Faculty Department</h2></label><div class="inputBox w50" id="dept" style="margin-top: 15px"><select name="ofdept" id="dts"><option value="1">CSE</option><option value="2">ECE</option><option value="3">EEE</option><option value="4">MECH</option><option value="5">CIVIL</option></select></div></div><div class="inputBox w50" id="on4" style="padding-top:25px"><input type="text" name="oname" required><span>Course Name</span></div><div class="inputBox w50" id="ob4" style="padding-top:25px"><input type="text" name="oby" required><span>Course Conducted by</span></div><div class="inputBox w50" id="cp4" style="padding-top:25px"><input type="text" name="ovenue" required><span>Course Platform</span></div><div class="inputBox w50" id="cd4" style="padding-top:25px"><input type="date" name="odate" required><span>Completion Date</span></div><div class="inputBox w100" id="od4" style="padding-top: 20px"><textarea name="odesc" required></textarea><span>Course Description</span></div>');
+        }
+  });
+});
+</script>
+
+
+<!-- FOR THE SECOND CHECKBOX-->
+<script>
+$(document).ready(function(){
+    $("#ch4").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch4").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+    $("#ch5").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch5").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+    $("#ch6").click(function(){
+        if(!$(this).is(':checked')){
+            $("#cn").remove();
+            $("#fr").remove();
+            $("#to").remove();
+        }
+        else{
+            $("#ch6").after('<div class="inputBox w50" id="cn" style="padding-top:25px"><input type="text" name="" required><span>Company Name</span></div>  <div class="inputBox w50" id="fr"><input type="date" name="from" required><span>From</span></div>  <div class="inputBox w50" id="to"><input type="date" name="to" required><span>To</span></div>');
+        }
+  });
+});
+</script>
+
+
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="{% url 'personal' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Personal</a></li>
+                <li><a href="{% url 'evcon' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Conducted</a></li>
+                <li><a href="#" style="text-align: center; color: #03a9f4; text-decoration: none;">Events Attended</a></li>
+                <li><a href="{% url 'awards' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Achievements And Awards</a></li>
+                <li><a href="{% url 'report' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Frame Report</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <section>
+        <div class="container">
+            <div class="contactinfo">
+                <div>
+                    <h2>Requests :</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class="fas fa-pen"></i></span>
+                            <span><a href="{% url 'update2' %}" style="text-decoration: none;color: #efefef;font-size: 18px">Update Events Attended Details</a></span>
+                        </li>
+                        <li>
+                            <span><i class="fas fa-envelope"></i></span>
+                            <span><a href="{% url 'email' %}" style="text-decoration: none;color: #efefef;font-size: 18px">Email</a></span>
+                        </li>
+                        <li>
+                            <span><i class="fab fa-whatsapp"></i></span>
+                            <span>Whatsapp</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+         <form class="ea" method="post">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h2>Details of Programs Attended - </h2>
+                <form>
+                <div class="formBox">
+                    <div class="inputBox w50">
+                        <input type="text" name="facultyid" required>
+                        <span>Faculty ID</span>
+                    </div>
+                    <label class="inputBox w100" style="padding-top: 20px"><h2>Event Type : </h2></label>
+                    <div class="inputBox w100">
+                        <span>International Conference</span>
+                        <input type="checkbox" id="ch30" name="checkbox3" value="1">
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>PSG CARE Program</span>
+                        <input type="checkbox" id="ch31" name="checkbox3" value="2">
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>Workshop</span>
+                        <input type="checkbox" id="ch32" name="checkbox3" value="3">
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <span>Online Course</span>
+                        <input type="checkbox" id="ch33" name="checkbox3" value="4">
+                    </div>
+                    <div class="inputBox w100" style="padding-top: 20px">
+                        <input type="submit" value="Send" id="btn1">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </form>
+        </div>
+        </section>
+{% if flagz %}
+<script>
+    alert("You haven't Attended any event yet")
+</script>
+{% endif %}
+{% if flagdel %}
+<script>
+    alert("Your Attended Event Has been Deleted Successfully")
+</script>
+{% endif %}
+    </body>
+</html>
+

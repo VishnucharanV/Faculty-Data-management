@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Personal Details</title>
+        <link rel="stylesheet" href="{% static 'styleaw.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    </head>
+    <header style="width: 100%; height: 70px; background-color: #282828">
+        <h1>PSG<span style="color: #fff">iTech</span></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="{% url 'personal' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Personal</a></li>
+                <li><a href="{% url 'evcon' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Conducted</a></li>
+                <li><a href="{% url 'eveat' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Events Attended</a></li>
+                <li><a href="#" style="text-align: center; color: #03a9f4; text-decoration: none;">Achievements And Awards</a></li>
+                <li><a href="{% url 'report' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Frame Report</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" style="text-align: center; color: #ffffff; text-decoration: none;">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <body>
+        <section>
+        <div class="container">
+        <form class="aw" method="POST" id="submitform" name="submitform">
+            {% csrf_token %}
+            <div class="contactForm">
+                <h2>Audio Notes in Text - </h2>
+                <div class="formBox">
+                    <div class="inputBox w100">
+                        {{data}}
+                    </div>
+                    <div class="inputBox w100">
+                        <input type="submit" value="Add Lecture" id="btn1" name="audiosubmit">
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        </section>
+{% if flagz %}
+<script>
+    alert("You haven't achieved any awards")
+</script>
+{% endif %}
+{% if flagdel %}
+<script>
+    alert("You're Award Entry has been deleted sucessfully")
+</script>
+{% endif %}
+    </body>
+</html>
