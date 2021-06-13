@@ -66,7 +66,7 @@ termcolor==1.1.0
 twilio==6.59.0
 typing-extensions==3.7.4.3
 tzlocal==2.1
-urllib3==1.26.4
+urllib3==1.26.5
 webencodings==0.5.1
 Werkzeug==2.0.1
 wikipedia==1.4.0
