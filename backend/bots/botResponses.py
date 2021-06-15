@@ -5,7 +5,7 @@ def sample_responses(input_text):
     if(user_message in ("hello","hi","sup",)):
         return "Hey! How's it going?"
     if(user_message in ("who are you","who are you?",)):
-        return "I am a Faculty Assistant bot!"
+        return "I am a#!"
     if user_message in ("time","time?"):
         now = datetime.now()
         date_time = now.strftime("%d/%m/%y,%H:%M:%S")
