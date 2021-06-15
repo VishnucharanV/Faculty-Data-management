@@ -6,15 +6,15 @@ print("Bot started...")
 import psycopg2
 
 #connection
-connection = psycopg2.connect(user = "postgres",
-                                password = "sudanve5831",
-                                host = "localhost",
-                                database = "backend")
+connection = psycopg2.connect(user = "#",
+                                password = "#",
+                                host = "#",
+                                database = "#")
 #cursor
 cur=connection.cursor()
 
 #query
-cur.execute("SELECT * from backend_awards WHERE facultyid='715518104061' and facultyname='vishnu'")
+cur.execute("SELECT * from backend_awards WHERE facultyid='#' and facultyname='#'")
 
 #obtain
 rows = cur.fetchall()
