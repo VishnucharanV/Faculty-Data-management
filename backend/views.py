@@ -1103,7 +1103,7 @@ def sample_responses(input_text):
     if(user_message in ("hello","hi","sup",)):
         return "Hey! How's it going?"
     if(user_message in ("who are you","who are you?",)):
-        return "I am a Faculty Assistant bot!"
+        return "I am a #!"
     if user_message in ("time","time?"):
         now = datetime.now()
         date_time = now.strftime("%d/%m/%y,%H:%M:%S")
@@ -1118,7 +1118,7 @@ def help_command(update,context):
     update.message.reply_text('If you need further help try visiting our Website!')
 
 def handle_message(update,context):
-    awardobj = Awards.objects.filter(id="4",facultyid="715518104060")
+    awardobj = Awards.objects.filter(id="4",facultyid="#")
     for i in awardobj:
         fname=i.facultyname
         fid=i.facultyid
