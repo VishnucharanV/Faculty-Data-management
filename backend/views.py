@@ -104,11 +104,11 @@ def whatsapp(request):
     if request.method == "POST":
         message= request.POST['message']
         to = request.POST['to']
-        account_sid="AC5fd17cccdfd007675a553d90a7aabaa4"
-        token = "b2cd4ecf1cbecdbfbd913aa304d59892"
+        account_sid="#"
+        token = "#"
         client = Client(account_sid,token)
-        from_whatsapp_number ='whatsapp:+14155238886'
-        to_whatsapp_number = 'whatsapp:'+to
+        from_whatsapp_number ='#'
+        to_whatsapp_number = '#
         print(to_whatsapp_number)
         client.messages.create(body=message,
                                from_=from_whatsapp_number,
@@ -121,7 +121,7 @@ def email(request):
     if request.method == "POST":
         subject = request.POST['subject']
         message = request.POST['message']
-        from_mail = '18cs160@psgitech.ac.in'
+        from_mail = '#'
         to_mail = request.POST['to_mail']
         send_mail(
             subject,
@@ -153,7 +153,7 @@ def generate_pdf(request,*args,**kwargs):
     if('1' in request.session['checkboxr']):
         if Personal.objects.filter(facultyid="123").exists():
             flag1=1
-            persobj = Personal.objects.filter(facultyid="123")
+            persobj = Personal.objects.filter(facultyid="#")
     if(len(request.session['checkboxevcon'])!=0):
         if Evcon.objects.filter(facultyid=uc).exists():
             flag2=1
@@ -1095,7 +1095,7 @@ def submit(request):
 from telegram.ext import *
 from datetime import datetime
 print("Bot started...")
-keys = '1717603011:AAFzqpvMvNyq3vvDVuRZtNuuWyOiW2JkWv8'
+keys = '#:#'
 #RESPONSES
 def sample_responses(input_text):
     user_message = str(input_text).lower()
